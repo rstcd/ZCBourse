@@ -4,9 +4,9 @@ Application web de suivi des bourses mondiales pour débutants. Le projet se con
 ## Plan de travail (Roadmap)
 *Ce sur quoi je travaille actuellement pour bâtir les fondations.*
 
-- [ ] Créer la structure HTML de la page d'accueil.
-- [ ] Créer les pages HTML pour chaque bourse (6 pages).
-- [ ] Relier les pages entre elles (navigation via balises <a>).
+- [x] Créer la structure HTML de la page d'accueil.
+- [x] Créer les pages HTML pour chaque bourse (6 pages).
+- [x] Relier les pages entre elles (navigation via balises <a>).
 - [ ] Appliquer le design global (CSS) pour la mise en forme.
 
 ## Objectifs d'apprentissage
