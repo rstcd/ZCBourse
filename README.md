@@ -7,7 +7,7 @@ Application web de suivi des bourses mondiales pour débutants. Le projet se con
 - [x] Créer la structure HTML de la page d'accueil.
 - [x] Créer les pages HTML pour chaque bourse (6 pages).
 - [x] Relier les pages entre elles (navigation via balises <a>).
-- [ ] Appliquer le design global (CSS) pour la mise en forme.
+- [x] Appliquer le design global (CSS) pour la mise en forme.
 
 ## Objectifs d'apprentissage
 - Maîtriser la structure des pages web (HTML).
