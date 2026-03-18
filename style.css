@@ -1,0 +1,41 @@
+
+/* .table-container rend le tableau lisible sur le telephone */
+.table-container {
+    width: 100%;           /* Prend toute la largeur disponible */
+    overflow-x: auto;      /* Active le glissement horizontal sur mobile */
+    margin: 20px 0;        /* Ajoute de l'espace en haut et en bas */
+    border: 1px solid #ddd; /* Optionnel : une petite bordure pour délimiter la zone */
+    border-radius: 8px;    /* Optionnel : pour des coins arrondis plus modernes */
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    min-width: 600px;      /* IMPORTANT : Empêche le tableau de s'écraser sur mobile */
+    font-family: Arial, sans-serif;
+    font-family: sans-serif; /* Police propre et moderne */
+}
+
+th {
+    background-color: #333; /* Fond sombre pour l'en-tête */
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd; /* Ligne fine entre les données */
+}
+
+/* Une ligne sur deux en gris très clair */
+tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+/* Petit effet au survol de la souris */
+tr:hover {
+    background-color: #e9e9e9;
+}
