@@ -1,11 +1,11 @@
-tous_mes_tableaux ={
-# Tes données pour la SEHK, variable, liste de dictionnaires
-"sehk.html": [
+tous_mes_tableaux = {
+# Tes données pour les differentes bourses (clés = noms de fichiers HTML sur le disque)
+"SEHK.html": [
     {"Action": "Tencent", "Entreprise": "Tencent Holdings", "secteur": "Internet/Technologie", "PDG": "Ma Huateng", "Création": "1998"},
     {"Action": "China Construction", "Entreprise": "China Construction Bank", "secteur": "Banque/Finance", "PDG": "Zhang Jinliang", "Création": "1954"},
     {"Action": "AIA", "Entreprise": "AIA Group", "secteur": "Assurance/Finance", "PDG": "Lee Yuan Siong", "Création": "1919"}
 ],
-"euronext.html": [
+"Euronext.html": [
     {"Action": "MC", "Entreprise": "LVMH", "secteur": "Luxe", "PDG": "Bernard Arnault", "Création": "1987"},
     {"Action": "ASML", "Entreprise": "ASML Holding", "secteur": "Semi-conducteurs", "PDG": "Christophe Fouquet", "Création": "1984"},
     {"Action": "RMS", "Entreprise": "Hermès", "secteur": "Luxe", "PDG": "Axel Dumas", "Création": "1837"}
@@ -30,21 +30,25 @@ tous_mes_tableaux ={
     {"Action": "601857", "Entreprise": "PetroChina", "secteur": "Energie (Pétrole)", "PDG": "Ren Lixin", "Création": "1999"},
     {"Action": "600519", "Entreprise": "Kweichow Moutai", "secteur": "Spiritueux", "PDG": "Zhang Deqin", "Création": "1999"}
 ]
-}   
+}
 
 
-# Le script affiche les données pour confirmer
-print(f"--- 📊 ANALYSE DE L'INVENTAIRE : {len(tous_mes_tableaux)} MARCHÉS DÉTECTÉS ---")
+# --- Une bourse à la fois (pas d'automatisation sur tous les fichiers) ---
+# Modifie la ligne ci-dessous avec le nom exact du fichier HTML à mettre à jour,
+# puis lance le script une fois. Recommence pour une autre bourse si besoin.
+fichier_a_mettre_a_jour = "NASDAQ.html"  # ex. "SEHK.html", "Euronext.html", "JPX.html", "NYSE.html", "SSE.html"
 
-for liste_actions in tous_mes_tableaux.values():
-    for action in liste_actions:
-        print(f"Action: {action['Action']} | Entreprise: {action['Entreprise']} | Secteur: {action['secteur']} | PDG: {action['PDG']} | Création: {action['Création']}")
+donnees_a_inserer = tous_mes_tableaux[fichier_a_mettre_a_jour]
 
-
-fichiers_html = ["Euronext.html", "JPX.html", "NASDAQ.html", "NYSE.html", "SEHK.html", "SSE.html"]
+print(f"--- Aperçu des données pour {fichier_a_mettre_a_jour} ---")
+for action in donnees_a_inserer:
+    print(
+        f"Action: {action['Action']} | Entreprise: {action['Entreprise']} | "
+        f"Secteur: {action['secteur']} | PDG: {action['PDG']} | Création: {action['Création']}"
+    )
 
 nouveau_corps_tableau = "    <tbody>\n"
-for action in sehk_data:
+for action in donnees_a_inserer:
     nouveau_corps_tableau += "        <tr>\n"
     nouveau_corps_tableau += f"            <td>{action['Action']}</td>\n"
     nouveau_corps_tableau += f"            <td>{action['Entreprise']}</td>\n"
@@ -54,18 +58,15 @@ for action in sehk_data:
     nouveau_corps_tableau += "        </tr>\n"
 nouveau_corps_tableau += "    </tbody>"
 
-
-with open("nom_fichier.html", "r", encoding="utf-8") as f:
+with open(fichier_a_mettre_a_jour, "r", encoding="utf-8") as f:
     contenu = f.read()
-
 
 debut = contenu.find("<!-- DEBUT_TABLEAU-->") + len("<!-- DEBUT_TABLEAU-->")
 fin = contenu.find("<!-- FIN_TABLEAU-->")
 
 nouveau_fichier = contenu[:debut] + "\n" + nouveau_corps_tableau + "\n    " + contenu[fin:]
 
-
-with open("nom_fichier.html", "w", encoding="utf-8") as f:
+with open(fichier_a_mettre_a_jour, "w", encoding="utf-8") as f:
     f.write(nouveau_fichier)
 
-print(f"--- Le fichier {nom_fichier.html} a été mis à jour avec succès ! ---")
+print(f"--- Fichier mis à jour : {fichier_a_mettre_a_jour} ---")
