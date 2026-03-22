@@ -19,3 +19,7 @@ Application web de suivi des bourses mondiales pour débutants. Le projet se con
 
 - [ ] Remplir le contenu détaillé de chaque page bourse.
 - [ ] Ajouter les fonctionnalités de données dynamiques.
+
+### 📖 Mon Journal d'Apprentissage
+Tu peux suivre ma progression et mes notes au quotidien ici : 
+[Consulter mon journal d'apprentissage](https://docs.google.com/document/d/1718y6FCX7xZMLpg-Azs0nmWxpI_6f7Vf8FSqTHz86Q8/edit?usp=drivesdk)
